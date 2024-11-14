@@ -1,0 +1,52 @@
+-->Steps:
+---------
+1. Download and Install Node.js
+  •	Go to the Node.js website.
+  •	Download the operating system (Windows installer for your, macOS, or Linux).
+  •	Run the installer and follow the instructions to install Node.js. The installer also installs npm (Node Package Manager),       which is useful for managing packages.
+  --> Once you do download and install node(and add path in Environment variable it is accessible from every drive).
+      can verify using node -v or node --version
+
+2. Open Appropriate folder in vs code, and in terminal run this:
+  npx create-react-app project_name
+  (try cmd if can not access from vs code terminal)
+
+-->Why do we need node for ReactJS:
+-----------------------------------
+We need Node.js for React.js development because it helps manage the tools and processes that make building a React app easier. Here's why:
+
+1. Running the App Locally
+•	When you create a React app, you need a local server to see your app in the browser while you work. Node.js helps run this server and lets you test and see your changes instantly.
+
+2. Installing and Managing Libraries
+•	React projects often need additional libraries or tools (like React Router or Redux). Node.js uses npm (Node Package Manager) to download and manage these libraries, making it easy to add features to your app.
+
+3. Making Code Ready for the Browser
+•	React uses modern JavaScript features that might not work in all browsers. Node.js helps with transpiling (converting) the code into a version that works everywhere and bundling it into a smaller, more efficient file for the browser.
+
+4. Running Scripts
+•	You often run commands like starting the app or building it for production. These commands (like npm start or npm run build) are made possible by Node.js.
+
+5. React Tools and Ecosystem
+•	Many React tools (like Create React App, Next.js, and React Developer Tools) are built with Node.js, so you need it to use them effectively.
+
+In short:
+Node.js helps in setting up, running, and managing everything in a React app. Without it, you wouldn't have an easy way to run your app or manage all the necessary tools and libraries!
+
+-->Differece between npm and npx:
+---------------------------------
+In simple terms:
+  •	npm (Node Package Manager) is used to install, manage, and run packages (libraries or tools) in your projects. When you use   npm install <package-name>, it downloads and installs the package in your project or globally.
+  •	npx (Node Package Execute) is a tool that comes with npm (from version 5.2.0 onward). It allows you to run packages or       commands directly without having to install them globally. This is useful when you want to use a package just once or quickly   run a command from a package without cluttering your system with unnecessary global installations.
+Key Differences:
+
+  1.	npm installs packages, while npx runs packages.
+  2.	npm requires you to install a package first before you can use it, while npx runs a package without installation.
+
+For example:
+
+•	npm install create-react-app installs the create-react-app tool globally on your system.
+•	npx create-react-app my-app runs the create-react-app command without needing to install it globally.
+In short, npx helps you run packages without installing them globally, making it more convenient for one-time use.
+
+
