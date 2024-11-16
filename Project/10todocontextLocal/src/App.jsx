@@ -27,6 +27,8 @@ function App() {
         completed: !prevTodo.completed } : prevTodo))
   }
 
+  //it fetches in keeps the todo in local
+  //responsible to have todo even if we refresh 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))
 
