@@ -4,7 +4,7 @@ Vite provides a modern and highly efficient alternative to **Create React App (C
 
 ---
 
-## Table of Contents
+## Table of Content
 
 1. [Steps of Implementation](#steps-of-implementation)
 2. [Why Vite Over CRA (Create React App)?](#why-vite-over-cra-create-react-app)
@@ -14,7 +14,7 @@ Vite provides a modern and highly efficient alternative to **Create React App (C
 
 ## Steps of Implementation:
 
-1. **Step 1: Install Vite:**
+1. **Install Vite:**
    First, you need to install the Vite development environment. The recommended way is to use npm or yarn:
 
 ```bash
