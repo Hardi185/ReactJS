@@ -1,6 +1,4 @@
-# React Hooks: A Comprehensive Guide
-
----
+# React Hooks:
 
 ## Table of Contents
 - [What is Hook?](#what-is-hook)
