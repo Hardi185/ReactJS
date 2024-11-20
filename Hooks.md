@@ -87,7 +87,7 @@ export default PartyCounter;
 ## Popular React Hooks with Examples
 
 ### 1. useState:
-Already discussed in the [With Hooks: useState](#with-hooks-usestate) section.
+Already discussed in the [Hooks vs Functions](#hooks-vs-functions) section.
 
 ### 2. useEffect:
 The useEffect hook is one of the most powerful and commonly used hooks in React. It is used to handle side effects in function components. Side effects can be operations like:
