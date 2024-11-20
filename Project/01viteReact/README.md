@@ -4,7 +4,7 @@ Vite provides a modern and highly efficient alternative to **Create React App (C
 
 ---
 
-# Table of Contents
+## Table of Contents
 
 1. [Steps of Implementation](#steps-of-implementation)
 2. [Why Vite Over CRA (Create React App)?](#why-vite-over-cra-create-react-app)
@@ -12,7 +12,7 @@ Vite provides a modern and highly efficient alternative to **Create React App (C
 
 ---
 
-#Steps of Implementation:
+## Steps of Implementation:
 
 1. **Step 1: Install Vite:**
    First, you need to install the Vite development environment. The recommended way is to use npm or yarn:
@@ -45,7 +45,7 @@ npm run dev
 
 ---
 
-#Why Vite Over CRA (Create React App)?
+## Why Vite Over CRA (Create React App)?
 
 - **Faster development** server due to ESBuild and no bundling in development.
 - **Better performance** and more efficient use of resources.
@@ -57,7 +57,7 @@ Vite provides a modern alternative to Create React App, focusing on speed, simpl
 
 ---
 
-#Explaination of Entry Point in Vite
+## Explaination of Entry Point in Vite
 
 1. **Default Behavior in Vite:**
 
