@@ -1,8 +1,3 @@
-# React + Vite
+# Backgroup color changer
+This project demonstrates how to dynamically change the background color using Tailwind CSS and the React 'useState' hook. It combines the power of utility-first CSS with React's state management to create an interactive and responsive user experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
