@@ -6,6 +6,7 @@ import App from './App.jsx'
 const testVar = "Hello Hardi"
 
 //check which element of react is supported by yourself
+//approach:1
 const reactElement = {
   type: 'a',
   props: {
@@ -15,6 +16,7 @@ const reactElement = {
   children: 'Click me to visit google'
 }
 
+//approach:2
 const reactElement2 = React.createElement(
   'a',
   {href: 'https://google.com', target: '_blank'},
@@ -22,6 +24,7 @@ const reactElement2 = React.createElement(
   testVar
 )
 
+//approach:3
 const reactElement3 = (
   <a href="https://google.com" target='_blank'>Visit Google</a>
 )

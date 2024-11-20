@@ -1,4 +1,4 @@
-import Chai from './chai'
+import Hardi from './Hardi'
 
 function App() {
   const name = "Hello Hardi"
