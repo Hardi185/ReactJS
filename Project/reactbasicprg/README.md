@@ -125,6 +125,32 @@ Console Warning:
 Warning: Cannot update state during a render phase. This will cause unexpected behavior in strict mode.
 ```
 
+Fix for this warning:
+
+```javascript
+import React, { useState, useEffect } from "react";
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (count === 0) {
+      setCount(1); // Update state inside useEffect (side effect)
+    }
+  }, [count]); // This effect will run when 'count' changes
+
+  return <div>Count: {count}</div>;
+}
+```
+
+- **useEffect Hook:** The useEffect hook allows you to run side effects (like updating the state) after the component has rendered. This ensures that state changes do not happen during the render phase and avoid triggering unnecessary re-renders.
+
+- The second argument to useEffect is an array of dependencies. In this case, useEffect will run every time the count state changes. The state update inside useEffect will only happen once when count is 0, as the condition if (count === 0) will be met.
+  
+- The setCount(1) will execute inside the useEffect, ensuring that React follows its rules for side effects and the component works as expected.
+
+
+
 
 
 
