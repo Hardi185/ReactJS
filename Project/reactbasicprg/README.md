@@ -27,5 +27,15 @@ This document provides a step-by-step guide to setting up a React project using 
 3. **Understand the Structure**
 - src/index.js: The entry point of the application where React starts rendering.
 - public/index.html: The HTML file where your React app is injected.
-- src/App.js: The main component of the application.   
+- src/App.js: The main component of the application.
+
+4. **Run the Development Server**
+
+```bash
+npm start
+or
+npm run start
+
+5.
+
    
