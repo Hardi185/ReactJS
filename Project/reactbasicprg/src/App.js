@@ -1,9 +1,11 @@
-import Chai from './Chai.js'
+
+//This is main component
+import Hardi from './Hardi.js'
 
 function App() {
   return (
     <>
-    <Chai/>
+    <Hardi/>
     </>
   );
 }
