@@ -91,6 +91,43 @@ Simplifies Imports: If a folder contains an index.js file, you can import from t
    -    Deprecated APIs.
    -    Side effects during rendering.
 
+```javascript
+<React.StrictMode>
+  <App />
+</React.StrictMode>
+```
+
+**What Happens If You Don’t Use React.StrictMode?**
+
+- **No Alerts for Problems:** Without React.StrictMode, the application runs as normal, but you won't be notified of potential issues that might cause problems in the future.
+- **No Deprecation Warnings:** Deprecated methods or unsafe practices won't trigger warnings.
+- **Missed Optimization Opportunities:** You might unintentionally use patterns or APIs that hinder performance, especially with modern features like concurrent rendering.
+- inshort no warning messages
+
+Example:
+
+```javascript
+import React, { useState } from "react";
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  if (count === 0) {
+    setCount(1); // Directly mutating state during rendering
+  }
+
+  return <div>Count: {count}</div>;
+}
+```
+
+Console Warning:
+```vbnet
+Warning: Cannot update state during a render phase. This will cause unexpected behavior in strict mode.
+```
+
+
+
+
 
 
 
