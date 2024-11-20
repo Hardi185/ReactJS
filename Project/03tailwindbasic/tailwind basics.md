@@ -19,16 +19,16 @@ If you have created your ReactJS project using Vite, follow these steps:
 2. **Configure Tailwind CSS:**
    Open the tailwind.config.js file and update the content property to include your source files:
    ```javascript
-       module.exports = {
-      content: [
-        "./index.html",
-        "./src/**/*.{js,ts,jsx,tsx}",
-      ],
-      theme: {
-        extend: {},
-      },
-      plugins: [],
-    };
+      module.exports = {
+         content: [
+           "./index.html",
+           "./src/**/*.{js,ts,jsx,tsx}",
+         ],
+         theme: {
+           extend: {},
+         },
+         plugins: [],
+      };
    ```
 
 3. **Add Tailwind Directives:**
@@ -50,6 +50,6 @@ If you have created your ReactJS project using Vite, follow these steps:
 ## Additional Information:
 
 For more details and advanced configuration, visit the official documentation:
-Tailwind CSS Documentation(https://tailwindcss.com)
+[Tailwind CSS Documentation](https://tailwindcss.com)
 
    
