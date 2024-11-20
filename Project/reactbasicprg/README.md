@@ -149,6 +149,8 @@ function MyComponent() {
   
 - The setCount(1) will execute inside the useEffect, ensuring that React follows its rules for side effects and the component works as expected.
 
+- **NOTE:** We'll learn about useEffect and other hooks afterwards.
+
 
 
 
