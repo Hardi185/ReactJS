@@ -68,4 +68,31 @@ it's not mandatory to name the file index.js, but it's conventionally named so i
 Webpack Default Behavior: Webpack (used by create-react-app) considers index.js as the default entry point in the src folder if not explicitly specified in its configuration.
 Simplifies Imports: If a folder contains an index.js file, you can import from the folder directly without specifying the file name.
 
+---
+
+## What is npm run build and npm run start?
+
+**npm run start:**
+- Starts the development server.
+- Runs on localhost:3000 by default.
+- Watches for file changes and reloads the browser.
+
+**npm run build:**
+- Creates an optimized production-ready build.
+- Outputs minified files in the build folder for deployment.
+
+---
+
+## What is React.StrictMode?
+
+- A development tool that highlights potential problems in an application.
+- Wraps components in React.StrictMode to check for:
+-    Unsafe lifecycle methods.
+-    Deprecated APIs.
+-    Side effects during rendering.
+
+
+
+
+
    
