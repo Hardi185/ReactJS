@@ -4,7 +4,7 @@
 
 ## Table of Contents
 - [What is Hook?](#what-is-hook)
-- [Hooks/Functions](#hooks/functions)
+- [Hooks vs Functions](#hooks-vs-functions)
 - [Popular React Hooks with Examples](#popular-react-hooks-with-examples)
   - [1. `useState`](#1-usestate)
   - [2. `useEffect`](#2-useffect)
@@ -21,7 +21,7 @@ React hooks provide a way to manage state and side effects in functional compone
 
 ---
 
-## Hooks/Functions
+## Hooks vs Functions
 
 Now, Question is if we can do same thing using fuction then why hook?
 Let's understand with simple example:
@@ -87,7 +87,87 @@ export default PartyCounter;
 ## Popular React Hooks with Examples
 
 ### 1. useState:
-Already discussed in the [Managing State in Functional Components](#state-persistence-with-usestate) section.
+Already discussed in the [With Hooks: useState](#with-hooks-usestate) section.
 
-With Hooks: [useState](#1-usestate)
+### 2. useEffect:
+The useEffect hook is one of the most powerful and commonly used hooks in React. It is used to handle side effects in function components. Side effects can be operations like:
+
+- Fetching data from an API.
+- Directly modifying the DOM (e.g., focus an input field).
+- Setting up subscriptions or event listeners.
+- Performing cleanup (e.g., removing an event listener when a component is removed).
+
+#### Key Points:
+- useEffect runs after the render (after the DOM has been updated).
+- It can be used to perform operations that do not directly affect the component's render cycle.
+- It can run on every render, once on mount, or only when certain variables change.
+
+#### Basic Syntax of useEffect:
+```javascript
+useEffect(() => {
+  // Your code here (side effects)
+}, [dependencies]);
+```
+
+#### Example of What Can Go Wrong Without useEffect:
+Imagine we are trying to update the document title every time the count state changes:
+
+**Without useEffect (Incorrect):**
+
+```javascript
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // This would run on every render, leading to unnecessary document.title updates
+  document.title = `Count: ${count}`;  
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+**Problem:**
+**Inefficient:** document.title = Count: ${count}` is executed on every render. This means every time the component re-renders (which can happen frequently), the document title is updated again. This is inefficient and unnecessary.
+
+**Corrected version with useEffect:**
+```javascript
+import React, { useState, useEffect } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // The effect only runs when the count changes
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]);  // Dependency on count, so it runs only when count changes
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+**Why useEffect is Important:**
+- **Efficiency:** The document title will now only be updated when the count changes, avoiding unnecessary updates on every render.
+- **Cleanup:** useEffect can also handle cleanup for things like subscriptions or event listeners, ensuring that you don't run into memory leaks.
+
+
+
+
+
+
+
+
 
