@@ -87,9 +87,9 @@ Simplifies Imports: If a folder contains an index.js file, you can import from t
 
 - A development tool that highlights potential problems in an application.
 - Wraps components in React.StrictMode to check for:
--    Unsafe lifecycle methods.
--    Deprecated APIs.
--    Side effects during rendering.
+   -    Unsafe lifecycle methods.
+   -    Deprecated APIs.
+   -    Side effects during rendering.
 
 
 
