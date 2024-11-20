@@ -23,7 +23,7 @@ React hooks provide a way to manage state and side effects in functional compone
 
 ## Hooks/Functions
 
-Now, Question is if we can same thing using fuction then why hook?
+Now, Question is if we can do same thing using fuction then why hook?
 Let's understand with simple example:
 
 Imagine you are hosting a birthday party. You have a guest counter at the entrance, and each time someone enters the party, you press the counter to keep track of how many people are there.
@@ -51,8 +51,8 @@ function PartyCounter() {
 ````
 **Why This Doesn’t Work Well:**
 
-**No State Management:** The count guests is just a regular variable. When the component re-renders, the value of guests will reset back to 0. It can’t keep track of the previous count.
-**No Re-render:** React will not know to update the UI when the value of guests changes, because it's not connected to React’s rendering system.
+- **No State Management:** The count guests is just a regular variable. When the component re-renders, the value of guests will reset back to 0. It can’t keep track of the previous count.
+- **No Re-render:** React will not know to update the UI when the value of guests changes, because it's not connected to React’s rendering system.
 
 ### With Hooks: useState
 
@@ -78,10 +78,16 @@ export default PartyCounter;
 
 **Why This Works:**
 
-**State Persistence:** guests is now part of React's state. When the component re-renders (e.g., when a new guest is added), the state is preserved.
-**Reactivity:** When you call setGuests, React automatically triggers a re-render, updating the UI to reflect the new state.
-**No Boilerplate:** You don’t need to manually set up a class-based component or worry about lifecycle methods to handle updates. Hooks simplify the code.
+- **State Persistence:** guests is now part of React's state. When the component re-renders (e.g., when a new guest is added), the state is preserved.
+- **Reactivity:** When you call setGuests, React automatically triggers a re-render, updating the UI to reflect the new state.
+- **No Boilerplate:** You don’t need to manually set up a class-based component or worry about lifecycle methods to handle updates. Hooks simplify the code.
 
 ---
 
+## Popular React Hooks with Examples
+
+### 1. useState:
+Already discussed in the [Managing State in Functional Components](#state-persistence-with-usestate) section.
+
+With Hooks: [useState](#1-usestate)
 
