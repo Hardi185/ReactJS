@@ -1,5 +1,14 @@
 # React: A Comprehensive Overview
 
+## Table of Contents
+1. [What is React?](#what-is-react)
+2. [Why Learn React?](#why-learn-react)
+3. [How and Why Was React Created?](#how-and-why-was-react-created)
+4. [Single Page Applications (SPA)](#single-page-applications-spa)
+5. [Key Topics to Learn in React](#key-topics-to-learn-in-react)
+
+---
+
 ## What is React?
 
 React is a JavaScript library for building user interfaces.  
