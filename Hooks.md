@@ -7,7 +7,7 @@
 - [Hooks vs Functions](#hooks-vs-functions)
 - [Popular React Hooks with Examples](#popular-react-hooks-with-examples)
   - [1. `useState`](#1-usestate)
-  - [2. `useEffect`](#2-useffect)
+  - [2. `useEffect`](#2-useeffect)
 
 ---
 
@@ -97,22 +97,22 @@ The useEffect hook is one of the most powerful and commonly used hooks in React.
 - Setting up subscriptions or event listeners.
 - Performing cleanup (e.g., removing an event listener when a component is removed).
 
-#### Key Points:
+#### 2.1 Key Points:
 - useEffect runs after the render (after the DOM has been updated).
 - It can be used to perform operations that do not directly affect the component's render cycle.
 - It can run on every render, once on mount, or only when certain variables change.
 
-#### Basic Syntax of useEffect:
+#### 2.2 Basic Syntax of useEffect:
 ```javascript
 useEffect(() => {
   // Your code here (side effects)
 }, [dependencies]);
 ```
 
-#### Example of What Can Go Wrong Without useEffect:
+#### 2.3 Example of What Can Go Wrong Without useEffect:
 Imagine we are trying to update the document title every time the count state changes:
 
-**Without useEffect (Incorrect):**
+##### Without useEffect (Incorrect):
 
 ```javascript
 import React, { useState } from "react";
@@ -134,9 +134,9 @@ function Counter() {
 export default Counter;
 ```
 **Problem:**
-**Inefficient:** document.title = Count: ${count}` is executed on every render. This means every time the component re-renders (which can happen frequently), the document title is updated again. This is inefficient and unnecessary.
+- **Inefficient:** document.title = Count: ${count}` is executed on every render. This means every time the component re-renders (which can happen frequently), the document title is updated again. This is inefficient and unnecessary.
 
-**Corrected version with useEffect:**
+##### Corrected version with useEffect:
 ```javascript
 import React, { useState, useEffect } from "react";
 
