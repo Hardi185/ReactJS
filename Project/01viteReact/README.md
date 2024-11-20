@@ -1,8 +1,14 @@
-# React + Vite
+# Why Vite Over CRA (Create React App)?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vite provides a modern and highly efficient alternative to **Create React App (CRA)**. Here are some key reasons why you should choose Vite for your React projects:
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Table of Contents
+
+1. [Why Vite Over CRA (Create React App)?](#why-vite-over-cra-create-react-app)
+2. [Steps of Implementation](#steps-of-implementation)
+3. [Explaination of Entry Point in Vite](#explaination-of-entry-point-in-vite)
+
+---
+
