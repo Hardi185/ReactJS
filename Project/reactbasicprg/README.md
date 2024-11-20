@@ -23,3 +23,9 @@ This document provides a step-by-step guide to setting up a React project using 
    ```bash
    npx create-react-app my-app
    cd my-app
+
+3. **Understand the Structure**
+- src/index.js: The entry point of the application where React starts rendering.
+- public/index.html: The HTML file where your React app is injected.
+- src/App.js: The main component of the application.   
+   
