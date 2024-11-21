@@ -16,7 +16,7 @@ This repository explains Redux concepts, installation, and key components with e
 3. [Installation Steps](#installation-steps)
 4. [Redux vs Context API](#redux-vs-context-api)
    - [Performance Issues in Context API](#example-of-performance-issues-with-context)
-   - [Why Redux Solves This Issues](#why-redux-solves-this-issues)
+   - [Why Redux Solves This Issue](#why-redux-solves-this-issue)
    - [Comparison Table](#comparison-table-context-api-vs-redux)
 
 ---
