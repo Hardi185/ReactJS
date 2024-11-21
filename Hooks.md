@@ -9,6 +9,7 @@ Here are the topics will be including:
 - [Popular React Hooks with Examples](#popular-react-hooks-with-examples)
   - [1. `useState`](#1-usestate)
   - [2. `useEffect`](#2-useeffect)
+  - [3. `useRef`](#3-useref)
 
 ---
 
@@ -163,6 +164,55 @@ export default Counter;
 **Why useEffect is Important:**
 - **Efficiency:** The document title will now only be updated when the count changes, avoiding unnecessary updates on every render.
 - **Cleanup:** useEffect can also handle cleanup for things like subscriptions or event listeners, ensuring that you don't run into memory leaks.
+
+---
+
+## 3.useRef hook:
+
+### 3.1 What is useRef in React?
+useRef is a React hook that provides a way to create and manage a "mutable reference" that persists across re-renders of a component. It returns an object with a single property: .current. This .current property can hold any value (e.g., DOM element, primitive, or object), and updating it does not trigger a re-render of the component.
+
+### 3.2 Why is useRef Important/Used?
+- Accessing DOM Elements: It allows you to directly interact with DOM elements (e.g., focusing an input field, scrolling, or reading the value of a DOM node).
+
+- Persisting Values: It can hold mutable data that doesn't trigger a re-render. For example, it can store the previous value of a variable or track a timer ID in a setInterval.
+
+- Avoiding Re-renders: Unlike state, changing the value of .current doesn’t cause the component to re-render, which can optimize performance.
+
+### 3.3 Example: Using `useRef`:
+Scenario: A form with an input field that should automatically focus when the page loads.
+
+```javascript
+import React, { useRef, useEffect } from "react";
+
+function AutoFocusInput() {
+  const inputRef = useRef(null); // Initialize a ref to store the input element
+
+  useEffect(() => {
+    inputRef.current.focus(); // Automatically focus the input when the component mounts
+  }, []);
+
+  return (
+    <div>
+      <label htmlFor="name">Name:</label>
+      <input id="name" ref={inputRef} type="text" placeholder="Enter your name" />
+    </div>
+  );
+}
+
+export default AutoFocusInput;
+```
+
+**How it Works:**
+- The inputRef is initialized using useRef and assigned to the ref attribute of the <input> element.
+- When the component mounts, useEffect runs and accesses the actual DOM node via inputRef.current, calling the .focus() method.
+- The ref persists even if the component re-renders.
+
+
+### 3.4 Key Takeaways:
+- Use useRef for persistent, mutable values that don’t affect the UI directly.
+- It’s great for DOM manipulation, performance optimizations, and tracking values across renders.
+- Avoid using useRef as a substitute for state when the UI should react to changes. Use it as a complementary tool for managing non-render-affecting values.
 
 
 
