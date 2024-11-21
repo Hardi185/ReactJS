@@ -83,11 +83,13 @@ export const { addTodo, removeTodo } = todoSlice.actions;
 export default todoSlice.reducer;
 ```
 
+<a id="3-reducer"></a>
 3. **Reducer:**
 
 - A pure function that specifies how the state should change in response to an action.
 - Each slice has its own reducer generated automatically by createSlice.
 
+<a id="4-selector"></a>
 4. **Selector:**
 
 - Functions used to extract specific pieces of data from the Redux store.
@@ -97,6 +99,7 @@ export default todoSlice.reducer;
 export const selectTodos = state => state.todos;
 ```
 
+<a id="5-dispatch"></a>
 5. **Dispatch:**
 
 - A method used to send actions to the Redux store, triggering the reducer to update the state.
