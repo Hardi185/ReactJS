@@ -1,4 +1,4 @@
-#About Currency Converter
+# About Currency Converter
 
 The Currency Converter program is designed to simplify currency conversion while showcasing modern React concepts. Key features include:
 
