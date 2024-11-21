@@ -8,15 +8,16 @@ This repository explains Redux concepts, installation, and key components with e
 
 1. [What is Redux?](#what-is-redux)
 2. [Key Concepts in Redux](#key-concepts-in-redux)
-   - [Store](#store)
-   - [Slice](#slice)
-   - [Reducer](#reducer)
-   - [Selector](#selector)
-   - [Dispatch](#dispatch)
+   - [Store](#1-store)
+   - [Slice](#2-slice)
+   - [Reducer](#3-reducer)
+   - [Selector](#4-selector)
+   - [Dispatch](#5-dispatch)
 3. [Installation Steps](#installation-steps)
 4. [Redux vs Context API](#redux-vs-context-api)
    - [Performance Issues in Context API](#example-of-performance-issues-with-context)
    - [Why Redux Solves These Issues](#why-redux-solves-these-issues)
+   - [Comparison Table](#comparison-table-context-api-vs-redux)
 
 ---
 
@@ -259,3 +260,13 @@ Redux uses a selector pattern to optimize re-renders. With Redux, only component
 - **UserProfile** will subscribe to `user`.
 
 State updates in Redux are more granular because subscriptions are scoped to the specific data pieces a component depends on.
+
+## Comparison Table: Context API vs Redux
+
+| Feature            | Context API                                   | Redux                                    |
+|--------------------|-----------------------------------------------|-----------------------------------------|
+| **State Management** | Good for light or static state.              | Suitable for complex, dynamic states.   |
+| **Performance**     | Re-renders all consuming components when the value changes. | Efficient with selective state updates. |
+| **Debugging**       | No built-in debugging tools.                  | Provides tools like Redux DevTools.     |
+| **Middleware Support** | Limited capabilities.                     | Supports middleware for async logic.    |
+| **Scalability**     | Not ideal for large applications.            | Designed for large-scale apps.          |
