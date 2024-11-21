@@ -9,7 +9,7 @@ Here are the topics will be including:
 - [Popular React Hooks with Examples](#popular-react-hooks-with-examples)
   - [1. `useState`](#1-usestate)
   - [2. `useEffect`](#2-useeffect)
-  - [3. `useRef`](#3-useref)
+  - [3. useRef](#3useref-hook)
 
 ---
 
@@ -167,7 +167,7 @@ export default Counter;
 
 ---
 
-## 3.useRef hook:
+## 3. useRef hook:
 
 ### 3.1 What is useRef in React?
 useRef is a React hook that provides a way to create and manage a "mutable reference" that persists across re-renders of a component. It returns an object with a single property: .current. This .current property can hold any value (e.g., DOM element, primitive, or object), and updating it does not trigger a re-render of the component.
