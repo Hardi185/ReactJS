@@ -28,6 +28,7 @@ Redux is a state management library commonly used with JavaScript applications (
 
 ## Key Concepts in Redux
 
+<a id="1-store"></a>
 1. **Store:**
 
 - The single source of truth for the application's state.
@@ -55,6 +56,7 @@ ReactDOM.render(
 
 ```
 
+<a id="2-slice"></a>
 2. **Slice:**
 
 - A slice is a collection of Redux logic for a single feature or state domain (e.g., a "todos" slice).
