@@ -3,7 +3,7 @@
 This project demonstrates how to use React's Context API to share global data (like userData) across components without passing props through each component layer.
 
 ## Table of Contents
-1. [Introduction](#introduction)
+1. [Introduction](#1-introduction)
 2. [Why is Context Used?](#why-is-context-used)
    - [1. Avoid Prop Drilling](#avoid-prop-drilling)
    - [2. Global State Management](#global-state-management)
