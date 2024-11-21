@@ -13,9 +13,9 @@ This project demonstrates how to use React's Context API to share global data (l
    - [2. Provider](#32-provider)
    - [3. Consumer](#33-consumer)
 4. [Example of Context in React](#4-example-of-context-in-react)
-   - [1. Step 1: Create a Context](#step-1-create-a-context)
-   - [2. Step 2: Use the Context in Components](#step-2-use-the-context-in-components)
-   - [3. Step 3: Wrap the App with ThemeProvider](#step-3-wrap-the-app-with-themeprovider)
+   - [Step 1: Create a Context](#step-1-create-a-context)
+   - [Step 2: Use the Context in Components](#step-2-use-the-context-in-components)
+   - [Step 3: Wrap the App with ThemeProvider](#step-3-wrap-the-app-with-themeprovider)
 
 ---
 
