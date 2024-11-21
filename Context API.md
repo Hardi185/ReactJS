@@ -1,62 +1,63 @@
-# Context API in React:
+# React Context API Example
 
-This repository demonstrates the use of the **React Context API** to share global state (such as userData) across components in a React application.
+This project demonstrates how to use React's Context API to share global data (like userData) across components without passing props through each component layer.
 
 ## Table of Contents
-
 1. [Introduction](#introduction)
-2. [Why Use Context?](#why-is-context-used)
-   - [**Avoid Prop Drilling**](#avoid-prop-drilling)
-   - [**Global State Management**](#global-state-management)
-   - [**Efficient Re-rendering**](#efficient-re-rendering)
-3. [How Does Context Work?](#how-does-context-work)
-   - [Creating Context](#creating-context)
-   - [Provider Component](#provider-component)
-   - [Consumer (useContext) Hook](#consumer-usecontext-hook)
-4. [Example of React Context API](#example-of-react-context-api)
-   - [Step 1: Create a Context](#step-1-create-a-context)
-   - [Step 2: Use the Context in Components](#step-2-use-the-context-in-components)
-   - [Step 3: Wrap the App with the Provider](#step-3-wrap-the-app-with-the-provider)
+2. [Why is Context Used?](#why-is-context-used)
+   - [1. Avoid Prop Drilling](#avoid-prop-drilling)
+   - [2. Global State Management](#global-state-management)
+   - [3. Efficient Re-rendering](#efficient-re-rendering)
+3. [How Does Context Work in React?](#how-does-context-work-in-react)
+   - [1. Creating Context](#creating-context)
+   - [2. Provider](#provider)
+   - [3. Consumer](#consumer)
+4. [Example of Context in React](#example-of-context-in-react)
+   - [1. Step 1: Create a Context](#step-1-create-a-context)
+   - [2. Step 2: Use the Context in Components](#step-2-use-the-context-in-components)
+   - [3. Step 3: Wrap the App with ThemeProvider](#step-3-wrap-the-app-with-themeprovider)
 
 ---
 
-## Introduction
+## 1. Introduction
 
 In React, Context provides a way to share values (such as data or functions) across components, without having to pass props manually at every level of the component tree. It's particularly useful when you need to share global data (such as user authentication status, themes, language settings, or other app-wide settings) across many components.
 
 ---
 
-## Why is Context Used?
+## 2. Why is Context Used?
 
-1. **Avoid Prop Drilling:**
+### 2.1. Avoid Prop Drilling
 
 When you need to pass data through many layers of components (also called prop drilling), it can be tedious and lead to repetitive code. Context allows you to avoid this by providing a way to share data globally without passing props through every intermediate component.
 
-2. **Global State Management:**
+### 2.2. Global State Management
 
 Context is commonly used for state that needs to be accessed by many components, such as user authentication state, theme preferences (dark mode or light mode), language settings, etc.
 
-3. **Efficient Re-rendering:**
+### 2.3. Efficient Re-rendering
 
 When context values change, only the components that consume the context will re-render, which makes it more efficient than passing props down through many layers.
 
 ---
 
-## How Does Context Work in React?
+## 3. How Does Context Work in React?
 
-1. **Creating Context:**
+### 3.1. Creating Context
+
 You first create a context object using `React.createContext()`. This object has two main components: a Provider and a Consumer.
 
-2. **Provider:**
+### 3.2. Provider
+
 The Provider component allows you to set a value that will be shared across the tree of components. Any component that is wrapped in the Provider will have access to this value.
 
-3. **Consumer:**
+### 3.3. Consumer
 
-Components that need to access the value provided by the Provider use the Consumer or, in modern React (with hooks), the useContext hook to access the context value.
+Components that need to access the value provided by the Provider use the Consumer or, in modern React (with hooks), the `useContext` hook to access the context value.
 
-----
+---
 
-## Example of Context in React:
+## 4. Example of Context in React
 Here’s an example to illustrate how Context is used:
 
 ### Step 1: Create a Context
