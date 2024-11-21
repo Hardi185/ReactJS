@@ -8,11 +8,11 @@ This repository explains Redux concepts, installation, and key components with e
 
 1. [What is Redux?](#what-is-redux)
 2. [Key Concepts in Redux](#key-concepts-in-redux)
-   - [Store](#1-store)
-   - [Slice](#2-slice)
-   - [Reducer](#3-reducer)
-   - [Selector](#4-selector)
-   - [Dispatch](#5-dispatch)
+   - [Store](#1-store:)
+   - [Slice](#2-slice:)
+   - [Reducer](#3-reducer:)
+   - [Selector](#4-selector:)
+   - [Dispatch](#5-dispatch:)
 3. [Installation Steps](#installation-steps)
 4. [Redux vs Context API](#redux-vs-context-api)
    - [Performance Issues in Context API](#example-of-performance-issues-with-context)
@@ -261,7 +261,7 @@ Redux uses a selector pattern to optimize re-renders. With Redux, only component
 
 State updates in Redux are more granular because subscriptions are scoped to the specific data pieces a component depends on.
 
-## Comparison Table: Context API vs Redux
+### Comparison Table: Context API vs Redux
 
 | Feature            | Context API                                   | Redux                                    |
 |--------------------|-----------------------------------------------|-----------------------------------------|
