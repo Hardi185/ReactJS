@@ -1,5 +1,24 @@
-# Redux
+# Redux Guide
 
+This repository explains Redux concepts, installation, and key components with examples. It also compares Redux with Context API, highlighting performance improvements and use cases.
+
+---
+
+## Table of Contents
+
+1. [What is Redux?](#what-is-redux)
+2. [Key Concepts in Redux](#key-concepts-in-redux)
+   - [Store](#store)
+   - [Slice](#slice)
+   - [Reducer](#reducer)
+   - [Selector](#selector)
+   - [Dispatch](#dispatch)
+3. [Installation Steps](#installation-steps)
+4. [Redux vs Context API](#redux-vs-context-api)
+   - [Performance Issues in Context API](#example-of-performance-issues-with-context)
+   - [Why Redux Solves These Issues](#why-redux-solves-these-issues)
+
+---
 
 ## What is Redux?
 Redux is a state management library commonly used with JavaScript applications (especially with React). It provides a predictable state container to manage the application’s global state. Redux helps manage complex state transitions in a consistent and testable manner, making it easier to scale applications.
