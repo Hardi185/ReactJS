@@ -5,8 +5,8 @@ This repository demonstrates the use of the **React Context API** to share globa
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Why Use Context?](#why-use-context)
-   - [Avoid Prop Drilling](#avoid-prop-drilling)
+2. [Why Use Context?](#why-is-context-used)
+   - [Avoid Prop Drilling](#1-avoid-prop-drilling)
    - [Global State Management](#global-state-management)
    - [Efficient Re-rendering](#efficient-re-rendering)
 3. [How Does Context Work?](#how-does-context-work)
@@ -17,7 +17,6 @@ This repository demonstrates the use of the **React Context API** to share globa
    - [Step 1: Create a Context](#step-1-create-a-context)
    - [Step 2: Use the Context in Components](#step-2-use-the-context-in-components)
    - [Step 3: Wrap the App with the Provider](#step-3-wrap-the-app-with-the-provider)
-5. [Conclusion](#conclusion)
 
 ---
 
