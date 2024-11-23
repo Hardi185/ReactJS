@@ -1,5 +1,5 @@
 ## Library Example (React):
-------------------------
+____________________________
 Imagine you’re building a house, and you have a toolbox full of tools (like a hammer, saw, and screwdriver).
 - You decide which tool to use, when to use it, and in what order to work on tasks.
 - You have full control, but you also have to know which tools are right for each job and how to use them effectively.
@@ -9,7 +9,7 @@ Imagine you’re building a house, and you have a toolbox full of tools (like a 
 
 
 ## Framework Example (Angular):
-----------------------------
+_______________________________
 
 Now, imagine you’re working with a house-building kit. This kit includes all the parts (walls, roof, floors), and it also comes with a detailed instruction manual that tells you exactly how to put the house together.
 - The kit provides a predefined structure, so you follow specific steps to assemble the house.
