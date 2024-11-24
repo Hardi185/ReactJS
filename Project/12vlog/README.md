@@ -1,8 +1,34 @@
-# React + Vite
+# Blogging Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a fully functional blogging website built using **React**. Users can add and edit blogs with high-quality editors and enjoy a seamless experience. The backend is powered by **Appwrite**, and advanced tools like **TinyMCE** are used for the blog editor.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Add, edit, and manage blogs effortlessly.
+- Rich-text editor powered by **TinyMCE** for a premium writing experience.
+- **React Hook Form** for efficient form handling.
+- Real-time backend integration using **Appwrite**.
+- Blog content rendered dynamically with **HTML React Parser**.
+
+---
+
+## Tools and Libraries Used
+- **Appwrite**: For backend services.
+- **TinyMCE**: For rich-text editing.
+- **HTML React Parser**: To dynamically render HTML content in React.
+- **React Hook Form**: For managing form validation and submission.
+- **React Redux Toolkit**: For state management.
+- **React Router DOM**: For handling navigation and routing.
+
+---
+
+## Installation
+
+### Prerequisites
+- Ensure you have **Node.js** and **npm** installed on your system.
+- Install the required dependencies:
+  
+```bash
+npm install @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form
+```
