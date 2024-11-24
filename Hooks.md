@@ -10,6 +10,7 @@ Here are the topics will be including:
   - [1. `useState`](#1-usestate)
   - [2. `useEffect`](#2-useeffect)
   - [3. `useRef`](#3-useref-hook)
+  - [4. `useCallback`](#4-useCallback-Hook)
 
 ---
 
@@ -212,11 +213,160 @@ export default AutoFocusInput;
 - It’s great for DOM manipulation, performance optimizations, and tracking values across renders.
 - Avoid using useRef as a substitute for state when the UI should react to changes. Use it as a complementary tool for managing non-render-affecting values.
 
+---
+
+### 4. useCallback Hook
+
+The `useCallback` hook is used to memoize functions in React. It helps to avoid unnecessary re-creations of functions on each render, improving performance, especially in cases where the function is passed down to child components or used in expensive computations.
 
 
 
+#### 4.1 Why Do We Need useCallback?
+
+In React, functions are re-created each time a component re-renders. This may not be a problem for simple cases, but if the function is passed as a prop to child components or used in hooks like `useEffect`, it may trigger unnecessary re-renders or re-executions of the effect.
+
+`useCallback` helps to memoize a function, so it is only re-created if its dependencies (such as props or state values) change. This can optimize performance in certain scenarios.
 
 
+#### 4.2 When to Use useCallback
+
+- **Passing functions to child components:** If you pass a function as a prop to a child component and want to avoid unnecessary re-creations on each render.
+- **Using functions inside `useEffect` or `useMemo`:** When a function is used inside `useEffect` or `useMemo`, and you want to prevent the hook from being called repeatedly.
 
 
+#### 4.3 Example of useCallback
+
+Here’s an example where useCallback is used to avoid unnecessary re-renders of a child component.
+
+**Without useCallback:**
+
+```javascript
+import React, { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  // This function will be recreated every time Parent renders
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Increment</button>
+      <Child handleClick={handleClick} />
+    </div>
+  );
+}
+
+function Child({ handleClick }) {
+  console.log("Child component rendered");
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+
+export default App;
+```
+
+
+**With useCallback:**
+
+```javascript
+import React, { useState, useCallback } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  // Memoizing the handleClick function
+  const handleClick = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <button onClick={handleClick}>Increment</button>
+      <Child handleClick={handleClick} />
+    </div>
+  );
+}
+
+function Child({ handleClick }) {
+  console.log("Child component rendered");
+  return <button onClick={handleClick}>Click me</button>;
+}
+
+export default App;
+```
+
+**Explanation of the Updated Example:**
+- useCallback ensures that the handleClick function is only recreated when the count value changes.
+- This prevents unnecessary re-creations of the function and avoids unnecessary re-renders of the Child component when the count state in the Parent component updates.
+
+Now, the Child component will only re-render if the handleClick function changes (i.e., if count changes). If count doesn’t change, the function is the same across renders, and the Child component won't re-render unnecessarily.
+
+
+#### 4.4 Purpose of `useCallback` vs `useEffect`
+
+- **`useCallback`** is specifically designed to memoize functions and optimize the performance of your components by preventing unnecessary re-creations of functions, especially when they are passed to child components.
+- **`useEffect`** is for handling side effects like fetching data or subscribing to events, and it doesn't memoize functions or prevent their re-creations(not optimized way).
+
+Let's understand with example:
+
+```javascript
+import React, { useState, useEffect, useCallback } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  // Using useCallback
+  const memoizedFunction = useCallback(() => {
+    console.log("Memoized Function:", count);
+  }, [count]);
+
+  // Using useEffect
+  useEffect(() => {
+    const effectFunction = () => {
+      console.log("Effect Function:", count);
+    };
+
+    effectFunction(); // Just demonstrating recreation
+
+    // No cleanup required in this example, but generally you'd handle cleanup
+  }, [count]);
+
+  console.log("App rendered");
+
+  return (
+    <div>
+      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+      <button onClick={memoizedFunction}>Memoized Callback</button>
+    </div>
+  );
+}
+
+export default App
+```
+
+**Explanation of the Updated Example:**
+- useCallback ensures that the handleClick function is only recreated when the count value changes.
+- This prevents unnecessary re-creations of the function and avoids unnecessary re-renders of the Child component when the count state in the Parent component updates.
+
+Now, the Child component will only re-render if the handleClick function changes (i.e., if count changes). If count doesn’t change, the function is the same across renders, and the Child component won't re-render unnecessarily.
+
+##### Key Observations
+
+1. **On Initial Render:**
+
+useEffect runs immediately after the first render because that's its nature: it always runs after the component has been mounted.
+useCallback does not "run" on its own; it's just a mechanism to memoize a function. It will only execute when explicitly invoked (like when the button calls memoizedFunction).
+
+2. **On State Change (count changes):**
+
+useEffect re-runs because its dependency array contains count. This causes effectFunction to log the updated value of count.
+useCallback still does not "run" on its own, but the memoized function retains access to the latest count value because closures in JavaScript inherently have access to the latest state of variables.
+
+3. **When Clicking Memoized Callback:**
+
+- The `memoizedFunction` is explicitly invoked when the button is clicked. At this point, it logs the latest count value because the `useCallback` function always has access to the most recent state through its closure.
+- The `useCallback` hook ensures that the function reference is stable between renders as long as its dependency array ([count]) doesn't change. However, the function itself still has access to the latest state of count through JavaScript's closure mechanism.
 
