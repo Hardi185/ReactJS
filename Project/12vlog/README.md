@@ -15,9 +15,9 @@ This is a fully functional blogging website built using **React**. Users can add
 
 ## Tools and Libraries Used
 - **Appwrite**: For backend services. [Appwrite Documentation](https://appwrite.io/)
-- **TinyMCE**: For rich-text editing.
+- **TinyMCE**: For rich-text editing.[TinyMCE Documentation]()
 - **HTML React Parser**: To dynamically render HTML content in React.
-- **React Hook Form**: For managing form validation and submission.
+- **React Hook Form**: For managing form validation and submission.[React Hook Form Documentation](#https://react-hook-form.com/docs)
 - **React Redux Toolkit**: For state management.
 - **React Router DOM**: For handling navigation and routing.
 
