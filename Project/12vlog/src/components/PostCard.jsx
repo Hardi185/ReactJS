@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 //$id is just param name like id
 //featuredImage stores id of image
 //id is for card id
+//card structure
 function PostCard({
     $id, title, featuredImage
 })

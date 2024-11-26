@@ -1,6 +1,7 @@
 import conf from '../conf/config.js';
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
+//Services of posts using Appwrite
 export class Service{
     client = new Client();
     databases;
