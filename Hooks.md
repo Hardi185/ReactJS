@@ -12,6 +12,7 @@ Here are the topics will be including:
   - [3. `useRef`](#3-useref-hook)
   - [4. `useCallback`](#4-useCallback-Hook)
   - [5. `useContext`](#5-useContext-hook)
+  - [6. `useReducer`](#6-useReducer-hook)
 
 ---
 
@@ -378,3 +379,87 @@ useCallback still does not "run" on its own, but the memoized function retains a
 ### 5. useContext hook
 
 [Please refer this](https://github.com/Hardi185/ReactJS/blob/main/Context%20API.md)
+
+---
+
+### 6. useReducer hook
+
+The `useReducer` hook is a more advanced alternative to `useState` for managing complex state logic in functional React components. It utilizes a reducer function to determine how the state should change based on dispatched actions.
+
+#### When to Use `useState` vs. `useReducer`
+
+**Use `useState`**
+
+- **For simple state logic**: When managing a single piece of state or unrelated state variables.
+- **When state updates are independent**: If updating one state doesn’t depend on others.
+- **For UI-focused state**: Ideal for toggling visibility, managing form inputs, or counters.
+
+**Use `useReducer`**
+
+- **For complex state logic**: When your state has multiple sub-values or interdependent updates.
+- **When state transitions are determined by actions**: Use it when state updates are handled via actions (similar to Redux).
+- **For scalable patterns**: Ideal for scenarios like to-do lists, form wizards, or when the next state depends on the previous one.
+
+
+#### Examples
+
+#### Simple State with `useState`
+
+```jsx
+import React, { useState } from "react";
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+export default Counter;
+```
+
+#### Complex State with `useReducer`
+
+```jsx
+import React, { useReducer } from "react";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+const Counter = () => {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+    </div>
+  );
+};
+
+export default Counter;
+```
+
+### Key Differences
+
+| Feature          | `useState`               | `useReducer`                 |
+|------------------|--------------------------|------------------------------|
+| **Best for**     | Simple state             | Complex or interdependent state |
+| **Update Logic** | Inline (`setState`)      | Centralized in a reducer     |
+| **Scalability**  | Small-scale state        | Large-scale or structured state |
+| **Ease of Use**  | Easier to use            | Requires understanding of reducers |
+
+---
