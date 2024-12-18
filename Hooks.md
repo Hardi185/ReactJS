@@ -92,6 +92,8 @@ export default PartyCounter;
 ### 1. useState:
 Already discussed in the [Hooks vs Functions](#hooks-vs-functions) section.
 
+---
+
 ### 2. useEffect:
 The useEffect hook is one of the most powerful and commonly used hooks in React. It is used to handle side effects in function components. Side effects can be operations like:
 
@@ -166,6 +168,8 @@ export default Counter;
 - **Efficiency:** The document title will now only be updated when the count changes, avoiding unnecessary updates on every render.
 - **Cleanup:** useEffect can also handle cleanup for things like subscriptions or event listeners, ensuring that you don't run into memory leaks.
 
+---
+
 ### 3. useRef hook:
 
 #### 3.1 What is useRef in React?
@@ -218,8 +222,6 @@ export default AutoFocusInput;
 ### 4. useCallback Hook
 
 The `useCallback` hook is used to memoize functions in React. It helps to avoid unnecessary re-creations of functions on each render, improving performance, especially in cases where the function is passed down to child components or used in expensive computations.
-
-
 
 #### 4.1 Why Do We Need useCallback?
 
@@ -369,4 +371,6 @@ useCallback still does not "run" on its own, but the memoized function retains a
 
 - The `memoizedFunction` is explicitly invoked when the button is clicked. At this point, it logs the latest count value because the `useCallback` function always has access to the most recent state through its closure.
 - The `useCallback` hook ensures that the function reference is stable between renders as long as its dependency array ([count]) doesn't change. However, the function itself still has access to the latest state of count through JavaScript's closure mechanism.
+
+---
 
