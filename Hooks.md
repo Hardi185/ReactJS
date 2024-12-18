@@ -11,6 +11,7 @@ Here are the topics will be including:
   - [2. `useEffect`](#2-useeffect)
   - [3. `useRef`](#3-useref-hook)
   - [4. `useCallback`](#4-useCallback-Hook)
+  - [5. `ùseContext`](#5-useContext-hook)
 
 ---
 
@@ -374,3 +375,6 @@ useCallback still does not "run" on its own, but the memoized function retains a
 
 ---
 
+5. useContext hook
+
+[Please refer this](https://github.com/Hardi185/ReactJS/blob/main/Context%20API.md)
