@@ -375,6 +375,6 @@ useCallback still does not "run" on its own, but the memoized function retains a
 
 ---
 
-5. useContext hook
+### 5. useContext hook
 
 [Please refer this](https://github.com/Hardi185/ReactJS/blob/main/Context%20API.md)
