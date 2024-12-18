@@ -13,6 +13,7 @@ Here are the topics will be including:
   - [4. `useCallback`](#4-useCallback-Hook)
   - [5. `useContext`](#5-useContext-hook)
   - [6. `useReducer`](#6-useReducer-hook)
+  - [7. `useMemo`](#7-useMemo-hook)
 
 ---
 
@@ -463,3 +464,98 @@ export default Counter;
 | **Ease of Use**  | Easier to use            | Requires understanding of reducers |
 
 ---
+
+### 7. useMemo Hook:
+
+The `useMemo` hook is a performance optimization tool in React functional components. It memoizes the result of a computation, ensuring it only re-computes when its dependencies change. This prevents unnecessary and expensive calculations during re-renders.
+
+#### What is `useMemo`?
+
+`useMemo` is a React hook that memoizes the result of an expensive function, ensuring that the function is only re-executed when one of its dependencies changes. This is particularly useful for optimizing components that perform costly computations or when avoiding unnecessary re-renders.
+
+#### When to Use `useMemo`
+
+- **Expensive calculations**: Use `useMemo` when a function performs complex calculations that don’t need to run on every render.
+- **Preventing re-renders**: Avoid re-executing computations when the dependencies have not changed.
+- **Optimization**: When optimizing performance in large applications with heavy computations.
+
+#### Examples
+
+#### Without `useMemo`
+
+```jsx
+import React, { useState } from "react";
+
+const ExpensiveCalculation = ({ num }) => {
+  const calculate = () => {
+    console.log("Calculating...");
+    let result = 0;
+    for (let i = 0; i < 1000000000; i++) {
+      result += i;
+    }
+    return result + num;
+  };
+
+  return <div>Result: {calculate()}</div>;
+};
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <ExpensiveCalculation num={10} />
+      <button onClick={() => setCount(count + 1)}>Re-render</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+**Problem**
+The expensive calculation runs every time the parent component (`App`) re-renders, even though the `num` prop hasn’t changed.
+
+#### With `useMemo`
+
+```jsx
+import React, { useState, useMemo } from "react";
+
+const ExpensiveCalculation = ({ num }) => {
+  const memoizedResult = useMemo(() => {
+    console.log("Calculating...");
+    let result = 0;
+    for (let i = 0; i < 1000000000; i++) {
+      result += i;
+    }
+    return result + num;
+  }, [num]);
+
+  return <div>Result: {memoizedResult}</div>;
+};
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <ExpensiveCalculation num={10} />
+      <button onClick={() => setCount(count + 1)}>Re-render</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+**Benefit**
+The calculation runs only when the `num` prop changes, significantly improving performance by avoiding redundant computations.
+
+## Benefits of `useMemo`
+
+1. **Improved Performance**: Avoids re-execution of expensive calculations when inputs remain unchanged.
+2. **Reduced Component Load**: Minimizes the burden on components during re-renders, especially in complex applications.
+3. **Selective Memoization**: Provides fine-grained control over which computations are memoized based on dependencies.
+
+---
+
