@@ -11,7 +11,7 @@ Here are the topics will be including:
   - [2. `useEffect`](#2-useeffect)
   - [3. `useRef`](#3-useref-hook)
   - [4. `useCallback`](#4-useCallback-Hook)
-  - [5. `ùseContext`](#5-useContext-hook)
+  - [5. `useContext`](#5-useContext-hook)
 
 ---
 
