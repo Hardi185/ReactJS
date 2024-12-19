@@ -680,3 +680,20 @@ Example:
 ```javascript
 useDebugValue(value, (value) => (value ? "Debug Info" : "No Info"));
 ```
+---
+
+## NOTE:
+```yaml
+OnRefresh, everyhook re-runs and to avoid some default assignments local storage, sessions can be used and redux for globally storing and accessing value.
+
+useEffect: majorly for subscribtions, data fetching and prevent side effects.
+           ensures that code inside that only runs when dependacy changes.
+
+useCallback: store(memoize) function
+             will not execute untill we use event(onClick, onChange) or useEffect
+             dependancy array of useCallback make sures that, function reference is same unless dependancy changes(function will not be recreated untill dependancy)
+
+useMemo: always caches(memoize) value
+         always returns a value(so need variable to catch that value)
+         only recalculates when dep. array changes.
+```
