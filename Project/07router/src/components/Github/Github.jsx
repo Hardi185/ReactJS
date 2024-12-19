@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 export function Github() {
+    //data is coming using loader we adde on main.jsx
+    //so no longer useEffect is needed, which fetches data after component is rendered
     const data = useLoaderData()
     // const [data, setData] = useState([])
     useEffect(() => {
