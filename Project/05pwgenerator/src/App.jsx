@@ -29,6 +29,8 @@ function App() {
     setPassword(pass)
   }, [length, numberAllowed, charAllowed])
 
+  // as pwGenerator is function and not getting called from UI using onClick or any event,
+  // to trigger this we need useEffect
   useEffect(() => {
     pwGenerator()
   }, [length, numberAllowed, charAllowed, pwGenerator])
