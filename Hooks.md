@@ -90,6 +90,11 @@ export default PartyCounter;
 - **Reactivity:** When you call setGuests, React automatically triggers a re-render, updating the UI to reflect the new state.
 - **No Boilerplate:** You don’t need to manually set up a class-based component or worry about lifecycle methods to handle updates. Hooks simplify the code.
 
+**NOTE:**
+```yaml
+Function needs to be called, hooks use subscription mechanism.
+```
+
 ---
 
 ## Popular React Hooks with Examples
