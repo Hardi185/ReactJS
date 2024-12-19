@@ -14,6 +14,8 @@ Here are the topics will be including:
   - [5. `useContext`](#5-useContext-hook)
   - [6. `useReducer`](#6-useReducer-hook)
   - [7. `useMemo`](#7-useMemo-hook)
+  - [8. `useLayoutEffect`](#8-useLayoutEffect-hook)
+  - [9. `useDebugValue`](#9-useDebugValue-hook)
 
 ---
 
@@ -559,3 +561,117 @@ The calculation runs only when the `num` prop changes, significantly improving p
 
 ---
 
+### 8. useLayoutEffect hook
+
+`useLayoutEffect` is a React Hook that runs synchronously after all DOM mutations and before the browser paints the screen. It is especially useful for tasks requiring DOM measurement or modification to avoid visual glitches.
+
+#### Key Characteristics
+- Runs synchronously after DOM updates.
+- Prevents visual flickering by applying DOM changes before the browser paints.
+
+#### Common Use Cases
+1. **DOM Measurements:**
+   - Measuring an element's dimensions (e.g., height or width) immediately after rendering.
+2. **Avoiding Visual Glitches:**
+   - Eliminating visible flicker caused by DOM changes applied after the browser paint.
+3. **Animation Synchronization:**
+   - Coordinating animations with DOM updates.
+
+#### Example Usage
+
+```jsx
+import React, { useLayoutEffect, useRef, useState } from "react";
+
+const LayoutEffectExample = () => {
+  const boxRef = useRef(null);
+  const [boxWidth, setBoxWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    if (boxRef.current) {
+      // Measure the width of the box after rendering
+      setBoxWidth(boxRef.current.offsetWidth);
+    }
+  }, []);
+
+  return (
+    <div>
+      <div ref={boxRef} style={{ width: "50%", backgroundColor: "lightblue" }}>
+        Resize the window to measure me!
+      </div>
+      <p>Box width: {boxWidth}px</p>
+    </div>
+  );
+};
+
+export default LayoutEffectExample;
+```
+
+---
+
+#### What Happens If You Use `useEffect` Instead?
+Using `useEffect` in the above example might cause a visual glitch where the width is measured after the paint. With `useLayoutEffect`, the measurement occurs before the user sees the rendered output, ensuring smoother visuals.
+
+#### When to Use
+- Use `useLayoutEffect` when DOM manipulations or measurements must happen synchronously to prevent flickering or visual glitches.
+- Prefer `useEffect` for side effects that don't impact the visual appearance of the UI directly.
+
+---
+
+### 9. useDebugValue hook
+
+`useDebugValue` is a React Hook that adds custom labels for custom hooks in React DevTools. It is purely for debugging purposes and does not impact the runtime behavior of your application.
+
+#### Why is it Important?
+- Provides more **informative labels** in React DevTools for custom hooks.
+- Helps developers quickly understand the **current state** or behavior of a custom hook.
+
+
+#### When to Use `useDebugValue`
+- **Building Custom Hooks:**
+  Use it to improve debugging by adding descriptive labels for the hook’s state or behavior.
+- **Debugging State:**
+  Add debug information that describes the internal state or logic of the custom hook.
+
+#### Without `useDebugValue`
+```javascript
+const useCustomHook = () => {
+  const [count, setCount] = useState(0);
+
+  return [count, setCount];
+};
+```
+In React DevTools, the hook will appear as:
+```
+useCustomHook
+```
+
+### With `useDebugValue`
+```javascript
+import { useState, useDebugValue } from "react";
+
+const useCustomHook = () => {
+  const [count, setCount] = useState(0);
+
+  // Add a debug value for better visualization in DevTools
+  useDebugValue(count > 5 ? "High Count" : "Low Count");
+
+  return [count, setCount];
+};
+```
+In React DevTools, the hook will appear as:
+```
+useCustomHook: High Count
+```
+
+#### Key Points About `useDebugValue`
+
+**Debugging Only**
+- Does not affect the application’s behavior or performance.
+
+**Conditional Debugging**
+- Use a formatting function to compute a value only when DevTools is open, avoiding unnecessary performance costs.
+
+Example:
+```javascript
+useDebugValue(value, (value) => (value ? "Debug Info" : "No Info"));
+```
