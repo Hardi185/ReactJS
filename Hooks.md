@@ -645,7 +645,7 @@ In React DevTools, the hook will appear as:
 useCustomHook
 ```
 
-### With `useDebugValue`
+#### With `useDebugValue`
 ```javascript
 import { useState, useDebugValue } from "react";
 
