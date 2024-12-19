@@ -685,6 +685,7 @@ useDebugValue(value, (value) => (value ? "Debug Info" : "No Info"));
 ## NOTE:
 ```yaml
 OnRefresh, everyhook re-runs and to avoid some default assignments local storage, sessions can be used and redux for globally storing and accessing value.
+When page reloads, everything in react will be re-run and all the functions will be recreated, that's why we use dependancy array to tell react that do not recreate, untill it this values are changed.
 
 useEffect: majorly for subscribtions, data fetching and prevent side effects.
            ensures that code inside that only runs when dependacy changes.
