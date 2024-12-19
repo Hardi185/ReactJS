@@ -39,6 +39,7 @@ const router = createBrowserRouter(
       <Route path='contact' element={<Contact />} />
       <Route path='user/:userid' element={<User />} />
       <Route 
+        //It ensures that the data is ready and available before the Github component is rendered.
       loader={githubInfoLoader}
       path='github' 
       element={<Github />}
