@@ -105,6 +105,7 @@ export default todoSlice.reducer;
 <a id="3-reducer"></a>
 3. **Reducer:**
 
+- Combines different methods, to add/remove/update or any action to perform on store.
 - A pure function that specifies how the state should change in response to an action.
 - Each slice has its own reducer generated automatically by createSlice.
 
