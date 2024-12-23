@@ -32,7 +32,10 @@ Redux is a state management library commonly used with JavaScript applications (
 1. **Store:**
 
 - The single source of truth for the application's state.
+- A central place where the entire state of the application resides.
+- Only one store per application.
 - Created using the createStore or configureStore method.
+
 - Example:
 
 ```javascript
@@ -59,6 +62,7 @@ ReactDOM.render(
 <a id="2-slice"></a>
 2. **Slice:**
 
+- Slices manage a specific part of the state and include both reducers and actions.
 - A slice is a collection of Redux logic for a single feature or state domain (e.g., a "todos" slice).
 - Defined using the createSlice function in Redux Toolkit.
 - Example:
