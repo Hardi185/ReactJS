@@ -95,11 +95,23 @@ const todoSlice = createSlice({
     removeTodo: (state, action) => {
       return state.filter(todo => todo.id !== action.payload);
     },
+   getAllTodos: (state) => {
+      return state; // Simply return the state
+    },
+    getTodoById: (state, action) => {
+      return state.find((todo) => todo.id === action.payload); // Find and return the todo
+    },
   },
 });
 
 export const { addTodo, removeTodo } = todoSlice.actions;
 export default todoSlice.reducer;
+
+// Selectors
+//can think of it as converting pure actions to function kinda structure.
+export const selectTodos = (state) => state.todos;
+export const selectTodoById = (id) => (state) =>
+  state.todos.find((todo) => todo.id === id);
 ```
 
 <a id="3-reducer"></a>
@@ -117,8 +129,48 @@ export default todoSlice.reducer;
 - Example:
 
 ```javascript
-export const selectTodos = state => state.todos;
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectTodos } from './todoSlice';
+
+const TodoList = () => {
+  const todos = useSelector(selectTodos); // Get all todos
+
+  return (
+    <div>
+      <h1>All Todos</h1>
+      {todos.map((todo) => (
+        <p key={todo.id}>{todo.text}</p>
+      ))}
+    </div>
+  );
+};
+
+export default TodoList;
 ```
+**Get Todo by ID**
+```jsx
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectTodoById } from './todoSlice';
+
+const TodoDetails = ({ todoId }) => {
+  const todo = useSelector(selectTodoById(todoId)); // Pass the ID to the selector
+
+  if (!todo) return <p>Todo not found!</p>;
+
+  return (
+    <div>
+      <h1>Todo Details</h1>
+      <p>ID: {todo.id}</p>
+      <p>Text: {todo.text}</p>
+    </div>
+  );
+};
+
+export default TodoDetails;
+```
+
 
 <a id="5-dispatch"></a>
 5. **Dispatch:**
