@@ -337,6 +337,144 @@ Redux uses a selector pattern to optimize re-renders. With Redux, only component
 - **ThemeSwitcher** will subscribe to `theme` in the Redux store.
 - **UserProfile** will subscribe to `user`.
 
+#### Overview of example:
+The application includes:
+
+1. **Redux Store:**
+   - Two slices of state: `theme` and `user`.
+   - Actions to toggle the theme and update user information.
+
+2. **Components:**
+   - `ThemeSwitcher`: Subscribes to and updates the `theme` slice.
+   - `UserProfile`: Subscribes to and updates the `user` slice.
+
+3. **Root Application:**
+   - Combines `ThemeSwitcher` and `UserProfile` components, connected to the Redux store.
+
+---
+
+
+#### 1. Redux Store
+
+```javascript
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+const themeSlice = createSlice({
+  name: 'theme',
+  initialState: { value: 'light' },
+  reducers: {
+    toggleTheme: (state) => {
+      state.value = state.value === 'light' ? 'dark' : 'light';
+    },
+  },
+});
+
+const userSlice = createSlice({
+  name: 'user',
+  initialState: { name: 'John Doe', email: 'john@example.com' },
+  reducers: {
+    updateUser: (state, action) => {
+      return { ...state, ...action.payload };
+    },
+  },
+});
+
+export const { toggleTheme } = themeSlice.actions;
+export const { updateUser } = userSlice.actions;
+
+const store = configureStore({
+  reducer: {
+    theme: themeSlice.reducer,
+    user: userSlice.reducer,
+  },
+});
+
+export default store;
+```
+
+#### 2. ThemeSwitcher Component
+
+```javascript
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from './store';
+
+const ThemeSwitcher = () => {
+  const theme = useSelector((state) => state.theme.value); // Subscribe to theme
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <p>Current Theme: {theme}</p>
+      <button onClick={() => dispatch(toggleTheme())}>Toggle Theme</button>
+    </div>
+  );
+};
+
+export default ThemeSwitcher;
+```
+
+#### 3. UserProfile Component
+
+```javascript
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUser } from './store';
+
+const UserProfile = () => {
+  const user = useSelector((state) => state.user); // Subscribe to user
+  const dispatch = useDispatch();
+
+  const updateName = () => {
+    dispatch(updateUser({ name: 'Jane Doe' }));
+  };
+
+  return (
+    <div>
+      <p>Name: {user.name}</p>
+      <p>Email: {user.email}</p>
+      <button onClick={updateName}>Update Name</button>
+    </div>
+  );
+};
+
+export default UserProfile;
+```
+
+#### 4. Root Application
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import ThemeSwitcher from './ThemeSwitcher';
+import UserProfile from './UserProfile';
+
+const App = () => (
+  <Provider store={store}>
+    <ThemeSwitcher />
+    <UserProfile />
+  </Provider>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+---
+
+#### Performance Optimization with Redux
+- **ThemeSwitcher:**
+  - Subscribes only to the `theme` slice of state.
+  - Re-renders only when the `theme` changes.
+
+- **UserProfile:**
+  - Subscribes only to the `user` slice of state.
+  - Re-renders only when the `user` changes.
+
+This granular state subscription ensures that updates are scoped and minimizes unnecessary re-renders, improving performance in larger applications.
+  
+
 State updates in Redux are more granular because subscriptions are scoped to the specific data pieces a component depends on.
 
 ### Comparison Table: Context API vs Redux
