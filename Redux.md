@@ -45,8 +45,23 @@ const store = configureStore({
   reducer: rootReducer, // Combines all slices
 });
 ```
-- Wrap Your App with the Provider
 
+- If we've multiple slice and thier reducers, we can right as
+```js
+import { configureStore } from '@reduxjs/toolkit';
+import todoReducer from './todoSlice';
+import userReducer from './userSlice';
+
+const store = configureStore({
+  reducer: {
+    todos: todoReducer, // The 'todos' slice (todos string should match with value of name key in slice)
+    users: userReducer, // The 'users' slice
+  },
+});
+
+export default store;
+```
+- Wrap Your App with the Provider
 
 ```javascript
 
