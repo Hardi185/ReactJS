@@ -118,7 +118,7 @@ dispatch(addTodo({ id: 1, text: 'Learn Redux' }));
 ## Installation Steps:
 
 - **React Redux:** Provides bindings for React and Redux, enabling components to access and interact with the Redux store easily.
-- **@reduxjs/toolkit:** Simplifies Redux setup with utilities like configureStore, createSlice, and built-in best practices (e.g., immutability and middleware setup).
+- **@reduxjs/toolkit:** Redux Toolkit is a library designed to simplify the process of managing state in applications using Redux. Simplifies Redux setup with utilities like configureStore, createSlice, and built-in best practices (e.g., immutability and middleware setup).
 
 To install React Redux and @reduxjs/toolkit using npm, follow these steps:
 
