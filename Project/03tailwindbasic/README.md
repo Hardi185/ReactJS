@@ -12,7 +12,7 @@ If you have created your ReactJS project using Vite, follow these steps:
    Run the following commands in your project directory to install Tailwind CSS and its dependencies:
    ```bash
    npm install -D tailwindcss postcss autoprefixer
-   npx tailwindcss init
+   npx tailwindcss init -p
    ```
    This creates a tailwind.config.js file for your project.
 
