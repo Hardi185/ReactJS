@@ -193,7 +193,7 @@ class Example extends React.Component {
 ## Key Takeaways
 
 ✅ Functional Components (Preferred):
-- Wrapped in a function.
+- Wrapped in a function(and will be export as functi).
 - Uses hooks for state and lifecycle.
 - Shorter, more readable, and performant.
 
